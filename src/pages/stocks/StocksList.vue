@@ -9,6 +9,11 @@
 
             </div>
 
+            <ul >
+                <items-from-api >
+
+                </items-from-api>
+            </ul>
             <ul v-if="filteredStocks">
                 <stock-item v-for="stock in filteredStocks" :key="stock.id" :stock_name="stock.stock_name"
                     :high="stock.high" :low="stock.low" :open="stock.open" :close="stock.close">
@@ -18,6 +23,7 @@
 
 
             </ul>
+            
             <ul v-if="addedStocks">
 
                 <stock-item2 v-for="stock in addedStocks" :key="stock.id" :stock_name="stock.stock_name"
@@ -37,9 +43,11 @@ import BaseCard from '@/components/ui/BaseCard.vue'
 import BaseButton from '@/components/ui/BaseButton.vue'
 import StockItem from '@/components/stocks/StockItem.vue'
 import StockItem2 from '@/components/stocks/StockItem2.vue'
-export default {
-    components: { BaseCard, BaseButton, StockItem, StockItem2 },
+import ItemsFromApi from '@/components/stocks/ItemsFromApi.vue'
 
+export default {
+    components: { BaseCard, BaseButton, StockItem, StockItem2, ItemsFromApi },
+   
 
 
     computed: {
@@ -52,7 +60,10 @@ export default {
         },
         hasStocks() {
             return this.$store.getters['stocks/hasStocks']
-        }
+        },
+        // hasStocksFromApi() {
+        //     return this.$store.getters['stocksFromApi/stocksFromApi'].stock_symbol
+        // }
     }
 }
 </script> 

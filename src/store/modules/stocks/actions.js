@@ -1,4 +1,10 @@
+
+
 export default{
+
+   
+
+
     async addStock(context, data){
         // if(localStorage.getItem('stock_name')){
         //     alert(localStorage.getItem('stock_name'))

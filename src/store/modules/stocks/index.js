@@ -2,6 +2,8 @@ import mutations from './mutations.js'
 import actions from './actions.js'
 import getters from './getters'
 
+// import VueAxios from 'vue-axios'
+// import Vue from 'vue'
 
 console.log(
     JSON.parse(localStorage.getItem('showList'))
@@ -10,15 +12,19 @@ console.log(
 
 
 
+// Vue.use(VueAxios,axios)
+
 export default {
     namespaced: true,
-   
-
+    
     state() {
-
+   
+        
 
         return {
             localStorageData: JSON.parse(localStorage.getItem('showList')),
+            // stock_symbol: '',
+            // lastTradeNumbers: [],
             stocks: [
                 {
                     id: Math.floor(Math.random() * 100),
@@ -35,7 +41,10 @@ export default {
 
 
     },
+   
+  
     mutations,
     actions,
-    getters
+    getters,
+   
 }
