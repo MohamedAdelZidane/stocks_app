@@ -2,31 +2,70 @@
 
     <div class="card">
         <ul class="list-group list-group-flush">
-
             <li class="list-group-item" v-if="close >= open">
-                <span>Last Close: </span>
-                <h1 :style="{ color: 'green' }">{{ close }}</h1>
-
+                <div class="row">
+                    <div class="col">
+                        <span>Last Close: </span>
+                    </div>
+                    <div class="col">
+                        <h2 :style="{ color: 'green' }">{{ close }}</h2>
+                    </div>
+                </div>
             </li>
-
             <li class="list-group-item" v-if="close < open">
-                <span>Last Close: </span>
-                <h1 :style="{ color: 'red' }">{{ close }}</h1>
+                <div class="row">
+                    <div class="col">
+                        <span>Last Close: </span>
+                    </div>
+                    <div class="col">
+                        <h2 :style="{ color: 'red' }">{{ close }}</h2>
+                    </div>
+                </div>
+            </li>
+            <li class="list-group-item"><b>
+                    <h4>{{ stock_name }}</h4>
+                </b></li>
+            <li class="list-group-item">
+                <div class="row">
+                    <div class="col">
+                        <span>High:</span>
+                    </div>
+                    <div class="col">
+                        <h4> {{ high }}</h4>
+                    </div>
+                </div>
+            </li>
+            <li class="list-group-item">
+                <div class="row">
+                    <div class="col">
+                        <span>Low:</span>
 
-            </li>
+                    </div>
+                    <div class="col">
+                        <h4>{{ low }}</h4>
 
-            <li class="list-group-item">{{ stock_name }}</li>
-            <li class="list-group-item"><span>High:</span>
-                <h4> {{ high }}</h4>
+                    </div>
+                </div>
             </li>
-            <li class="list-group-item"><span>Low:</span>
-                <h4>{{ low }}</h4>
+            <li class="list-group-item">
+                <div class="row">
+                    <div class="col">
+                        <span>Open:</span>
+                    </div>
+                    <div class="col">
+                        <h4>{{ open }}</h4>
+                    </div>
+                </div>
             </li>
-            <li class="list-group-item"><span>Open:</span>
-                <h4>{{ open }}</h4>
-            </li>
-            <li class="list-group-item"><span>Close:</span>
-                <h4>{{ close }}</h4>
+            <li class="list-group-item">
+                <div class="row">
+                    <div class="col">
+                        <span>Close:</span>
+                    </div>
+                    <div class="col">
+                        <h4>{{ close }}</h4>
+                    </div>
+                </div>
             </li>
         </ul>
     </div>
@@ -41,7 +80,7 @@
 // import BaseButton from '../ui/BaseButton.vue'
 
 export default {
-   
+
     //   components: { BaseButton },
     props: ['high', 'low', 'open', 'close', 'stock_name']
 }

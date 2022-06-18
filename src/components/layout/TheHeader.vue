@@ -1,8 +1,8 @@
 <template>
     <header>
 
-        <nav class="navbar navbar-expand-lg bg-light">
-            <div class="container-fluid">
+        <nav class=" navbar navbar-dark navbar-expand-lg bg-light">
+            <div class="container">
                 <!-- <a class="navbar-brand" href="#">Stock Ticker</a> -->
                 <router-link class="navbar-brand" to="/">Stocks Ticker</router-link>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -28,6 +28,8 @@
             </div>
         </nav>
 
+        
+
 
         <!-- <nav>
             <h1>
@@ -47,3 +49,18 @@
         </nav> -->
     </header>
 </template>
+
+<style scoped>
+.navbar-brand{
+    color: #000 !important;
+}
+.nav-link{
+    color: #000 !important;
+}
+.navbar-toggler-icon{
+    background-color: #000;
+}
+.navbar-toggler{
+   border-color: black !important;
+}
+</style>

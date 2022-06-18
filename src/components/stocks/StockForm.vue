@@ -1,32 +1,93 @@
 <template>
-    <form @submit.prevent="submitForm">
-        <div class="form-control" :class="{ invalid: !stock_name.isValid }">
-            <label for="stock_name">Stock Name </label>
-            <input type="text" id="stock_name" v-model.trim="stock_name.val" @blur="clearValidity('stock_name')">
-            <p v-if="!stock_name.isValid">Stock Name must not be empty</p>
+    <form @submit.prevent="submitForm" class="form-control">
+
+        <div class="form-spacing" :class="{ invalid: !stock_name.isValid }">
+            <div class="row">
+                <div class="col">
+                    <label for="stock_name">Stock Name: </label>
+                </div>
+                <div class="col">
+                    <input type="text" id="stock_name" v-model.trim="stock_name.val"
+                        @blur="clearValidity('stock_name')">
+                    <p class="error_msg" v-if="!stock_name.isValid">Stock Name must not be empty</p>
+                </div>
+            </div>
         </div>
-        <div class="form-control" :class="{ invalid: !high.isValid }">
-            <label for="high">High </label>
-            <input type="number" id="high_value" v-model.trim="high.val" @blur="clearValidity('high')">
-            <p v-if="!high.isValid">High number must be greater then 0</p>
+        <div class="form-spacing" :class="{ invalid: !high.isValid }">
+            <div class="row">
+                <div class="col">
+                    <label for="high">High Number: </label>
+
+                </div>
+                <div class="col">
+                    <input type="number" id="high_value" v-model.trim="high.val" @blur="clearValidity('high')">
+                    <p class="error_msg" v-if="!high.isValid">High number must be greater then 0</p>
+                </div>
+            </div>
+
+
         </div>
-        <div class="form-control" :class="{ invalid: !low.isValid }">
-            <label for="low">Low </label>
-            <input type="number" id="low_value" v-model.trim="low.val" @blur="clearValidity('low')">
-            <p v-if="!low.isValid">Low number must be greater then 0</p>
+        <div class="form-spacing" :class="{ invalid: !low.isValid }">
+            <div class="row">
+                <div class="col">
+                    <label for="low">Low Number: </label>
+
+
+                </div>
+                <div class="col">
+                    <input type="number" id="low_value" v-model.trim="low.val" @blur="clearValidity('low')">
+                    <p class="error_msg" v-if="!low.isValid">Low number must be greater then 0</p>
+                </div>
+            </div>
+
+
         </div>
-        <div class="form-control" :class="{ invalid: !open.isValid }">
-            <label for="open">Open </label>
-            <input type="number" id="open_value" v-model.trim="open.val" @blur="clearValidity('open')">
-            <p v-if="!open.isValid">Open number must be greater then 0</p>
+        <div class="form-spacing" :class="{ invalid: !open.isValid }">
+            <div class="row">
+                <div class="col">
+                    <label for="open">Open Number: </label>
+
+
+
+                </div>
+                <div class="col">
+                    <input type="number" id="open_value" v-model.trim="open.val" @blur="clearValidity('open')">
+                    <p class="error_msg" v-if="!open.isValid">Open number must be greater then 0</p>
+                </div>
+            </div>
+
+
         </div>
-        <div class="form-control" :class="{ invalid: !close.isValid }">
-            <label for="close">Close </label>
-            <input type="number" id="close_value" v-model.trim="close.val" @blur="clearValidity('close')">
-            <p v-if="!close.isValid">Close number must be greater then 0</p>
+        <div class="form-spacing" :class="{ invalid: !close.isValid }">
+
+            <div class="row">
+                <div class="col">
+                    <label for="close">Close Number: </label>
+
+
+
+
+                </div>
+                <div class="col">
+                    <input type="number" id="close_value" v-model.trim="close.val" @blur="clearValidity('close')">
+                    <p class="error_msg" v-if="!close.isValid">Close number must be greater then 0</p>
+                </div>
+            </div>
+
+
         </div>
-        <p v-if="!formIsValid">Please fix the above errors and submit again.</p>
-        <base-button>Add</base-button>
+        <p class="error_msg" v-if="!formIsValid">Please fix the above errors and submit again.</p>
+
+
+        <div class="row">
+            <div class="col stock_form_add_btn">
+                <base-button>Add</base-button>
+
+            </div>
+
+        </div>
+
+
     </form>
 </template>
 
@@ -114,3 +175,23 @@ export default {
 
 }
 </script>
+
+<style scoped>
+.form-control {
+    margin-top: 2%;
+    margin-bottom: 2%;
+
+}
+
+.form-spacing {
+    margin: 2%;
+}
+
+.stock_form_add_btn {
+    margin-left: 2%;
+}
+
+.error_msg {
+    color: red;
+}
+</style>

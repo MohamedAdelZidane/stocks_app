@@ -1,39 +1,74 @@
 <template>
 
-    <div class="card" >
-        <ul class="list-group list-group-flush" >
-
+    <div class="card">
+        <ul class="list-group list-group-flush">
             <li class="list-group-item" v-if="lastTradeNumbers['4. close'] >= lastTradeNumbers['1. open']">
-                <span>Last Close: </span>
-                <h1 :style="{ color: 'green' }">{{ lastTradeNumbers['4. close'] }}</h1>
-
+                <div class="row">
+                    <div class="col">
+                        <span>Last Close: </span>
+                    </div>
+                    <div class="col">
+                        <h2 :style="{ color: 'green' }">{{ lastTradeNumbers['4. close'] }}</h2>
+                    </div>
+                </div>
             </li>
-
             <li class="list-group-item" v-if="lastTradeNumbers['4. close'] < lastTradeNumbers['1. open']">
-                <span>Last Close: </span>
-                <h1 :style="{ color: 'red' }">{{ lastTradeNumbers['4. close'] }}</h1>
-
+                <div class="row">
+                    <div class="col">
+                        <span>Last Close: </span>
+                    </div>
+                    <div class="col">
+                        <h2 :style="{ color: 'red' }">{{ lastTradeNumbers['4. close'] }}</h2>
+                    </div>
+                </div>
             </li>
-
-            <li class="list-group-item">{{stock_symbol}}</li>
-            <li class="list-group-item" ><span>High: </span>
-                <h4> {{ lastTradeNumbers['2. high'] }}</h4>
+            <li class="list-group-item">
+                <b>
+                    <h4>{{ stock_symbol }}</h4>
+                </b>
             </li>
-            <li class="list-group-item"><span>Low:</span>
-                <h4>{{ lastTradeNumbers['3. low'] }}</h4>
+            <li class="list-group-item">
+                <div class="row">
+                    <div class="col">
+                        <span>High: </span>
+                    </div>
+                    <div class="col">
+                        <h4> {{ lastTradeNumbers['2. high'] }}</h4>
+                    </div>
+                </div>
             </li>
-            <li class="list-group-item"><span>Open:</span>
-                <h4>{{ lastTradeNumbers['1. open'] }}</h4>
+            <li class="list-group-item">
+                <div class="row">
+                    <div class="col">
+                        <span>Low:</span>
+                    </div>
+                    <div class="col">
+                        <h4>{{ lastTradeNumbers['3. low'] }}</h4>
+                    </div>
+                </div>
             </li>
-            <li class="list-group-item"><span>Close:</span>
-                <h4>{{ lastTradeNumbers['4. close'] }}</h4>
+            <li class="list-group-item">
+                <div class="row">
+                    <div class="col">
+                        <span>Open:</span>
+                    </div>
+                    <div class="col">
+                        <h4>{{ lastTradeNumbers['1. open'] }}</h4>
+                    </div>
+                </div>
+            </li>
+            <li class="list-group-item">
+                <div class="row">
+                    <div class="col">
+                        <span>Close:</span>
+                    </div>
+                    <div class="col">
+                        <h4>{{ lastTradeNumbers['4. close'] }}</h4>
+                    </div>
+                </div>
             </li>
         </ul>
     </div>
-
-
-
-
 
 </template>
 
@@ -42,8 +77,8 @@
 import axios from 'axios'
 
 export default {
-   
-   mounted() {
+
+    mounted() {
         // alert("Help")
 
         axios.get('https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=IBM&interval=5min&apikey=demo')
@@ -61,16 +96,16 @@ export default {
                 let lastTradeData = filteredArray[Object.keys(filteredArray)[0]]
                 console.log(lastTradeData);
                 for (const data in lastTradeData) {
-                    console.log(`${data}: ${lastTradeData[data]}`); 
+                    console.log(`${data}: ${lastTradeData[data]}`);
                     this.lastTradeNumbers = lastTradeData
 
                 }
-                console.log("I am here");   
+                console.log("I am here");
                 console.log(lastTradeData);
                 console.log(lastTradeData[Object.keys(lastTradeData)[4]]);
                 this.lastTradeNumbers = lastTradeData
                 console.log((lastTradeData))
-                
+
                 // console.log(this.lastTradeNumbers = resp.data['Time Series (5min)'])
                 // let stockName = 
             })
